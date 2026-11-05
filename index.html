@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aaron Ortiz · Webs y sistemas para negocios de servicios</title>
+<meta name="description" content="Desarrollador web full-stack en Venezuela. Páginas web, sistemas de gestión y cobros por WhatsApp para gimnasios, barberías y negocios de servicios.">
+<meta property="og:title" content="Aaron Ortiz · Webs y sistemas para negocios de servicios">
+<meta property="og:description" content="Páginas web y sistemas de gestión para gimnasios, barberías y negocios de servicios. Caso real: DreamFit Gym Center.">
+<meta property="og:image" content="img/landing-hero.jpg">
+<meta name="theme-color" content="#0a0c11">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2338e2a6'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='30' text-anchor='middle' fill='%230a0c11'%3EAO%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fondo:#0a0c11; --fondo2:#10131b; --tarjeta:#141824; --borde:#232a3a;
+  --texto:#eef1f7; --suave:#98a2b8; --menta:#38e2a6; --menta2:#7cf5cb; --azul:#5b8cff; --wa:#25d366;
+  --radio:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--fondo);color:var(--texto);font-family:Inter,system-ui,sans-serif;line-height:1.65;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,.logo{font-family:"Space Grotesk",Inter,sans-serif;line-height:1.12;letter-spacing:-.01em}
+.contenedor{width:min(1120px,100% - 32px);margin-inline:auto}
+section{padding:96px 0}
+.etiqueta{display:inline-flex;align-items:center;gap:8px;color:var(--menta);font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}
+.etiqueta::before{content:"";width:18px;height:2px;background:var(--menta)}
+.titulo{font-size:clamp(2rem,4.6vw,2.9rem);margin-bottom:14px}
+.intro{color:var(--suave);max-width:640px;margin-bottom:44px;font-size:1.05rem}
+.marca{color:var(--menta)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 24px;border-radius:12px;font-weight:600;transition:transform .2s,background .2s,border-color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:19px;height:19px;flex:none}
+.btn-menta{background:var(--menta);color:#06291c}
+.btn-menta:hover{background:var(--menta2)}
+.btn-borde{border:1.5px solid var(--borde);color:var(--texto)}
+.btn-borde:hover{border-color:var(--menta)}
+.btn-wa{background:var(--wa);color:#04210f}
+
+/* Nav */
+.nav{position:fixed;inset:0 0 auto;z-index:50;background:rgba(10,12,17,.8);backdrop-filter:blur(12px);border-bottom:1px solid var(--borde)}
+.nav .contenedor{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.1rem}
+.logo i{width:34px;height:34px;border-radius:9px;background:var(--menta);color:#0a0c11;display:grid;place-items:center;font-style:normal;font-size:.85rem}
+.nav ul{display:flex;gap:28px;list-style:none;font-size:.93rem;color:var(--suave)}
+.nav ul a:hover{color:var(--texto)}
+.nav .btn{padding:9px 16px;font-size:.9rem}
+.menu-btn{display:none;background:none;border:0;color:var(--texto);cursor:pointer;padding:8px}
+.menu-btn svg{width:26px;height:26px}
+
+/* Hero */
+.hero{padding:140px 0 80px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;width:700px;height:700px;right:-200px;top:-200px;background:radial-gradient(circle,rgba(56,226,166,.16),transparent 65%);pointer-events:none}
+.hero .contenedor{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;position:relative}
+.disponible{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;color:var(--suave);border:1px solid var(--borde);border-radius:999px;padding:6px 14px;margin-bottom:22px}
+.disponible i{width:8px;height:8px;border-radius:50%;background:var(--menta);box-shadow:0 0 0 4px rgba(56,226,166,.18)}
+.hero h1{font-size:clamp(2.4rem,5.6vw,3.9rem);margin-bottom:20px}
+.hero p{color:var(--suave);font-size:1.1rem;max-width:540px;margin-bottom:30px}
+.acciones{display:flex;flex-wrap:wrap;gap:12px}
+.cifras{display:flex;gap:34px;margin-top:40px;flex-wrap:wrap}
+.cifras b{display:block;font-family:"Space Grotesk",sans-serif;font-size:1.9rem;color:var(--texto)}
+.cifras span{color:var(--suave);font-size:.88rem}
+.vitrina{position:relative}
+.vitrina .pc{border-radius:14px;border:1px solid var(--borde);box-shadow:0 40px 80px rgba(0,0,0,.5)}
+.vitrina .cel{position:absolute;width:30%;right:-14px;bottom:-34px;border-radius:22px;border:5px solid #1c2130;box-shadow:0 30px 60px rgba(0,0,0,.6)}
+
+/* Caso */
+#caso{background:var(--fondo2);border-block:1px solid var(--borde)}
+.caso-top{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end;margin-bottom:40px}
+.caso-top .intro{margin-bottom:0}
+.resultados{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.resultado{background:var(--tarjeta);border:1px solid var(--borde);border-radius:14px;padding:16px}
+.resultado b{font-family:"Space Grotesk",sans-serif;font-size:1.6rem;color:var(--menta);display:block;line-height:1.1}
+.resultado span{color:var(--suave);font-size:.84rem}
+.piezas{display:grid;gap:22px}
+.pieza{display:grid;grid-template-columns:1fr 1.25fr;gap:0;background:var(--tarjeta);border:1px solid var(--borde);border-radius:var(--radio);overflow:hidden}
+.pieza:nth-child(even){grid-template-columns:1.25fr 1fr}
+.pieza:nth-child(even) .pieza-texto{order:2}
+.pieza-texto{padding:36px}
+.num{font-family:"Space Grotesk",sans-serif;color:var(--menta);font-weight:700;font-size:.9rem;letter-spacing:.1em}
+.pieza h3{font-size:1.65rem;margin:8px 0 10px}
+.pieza p{color:var(--suave);margin-bottom:16px}
+.pieza ul{list-style:none;display:grid;gap:8px;margin-bottom:22px}
+.pieza li{display:flex;gap:10px;font-size:.95rem}
+.pieza li svg{width:18px;height:18px;flex:none;color:var(--menta);margin-top:4px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px}
+.chip{font-size:.78rem;color:var(--suave);border:1px solid var(--borde);border-radius:999px;padding:3px 10px}
+.pieza-img{background:#0d1018;display:flex;align-items:center;justify-content:center;padding:28px;min-height:300px}
+.pieza-img img{border-radius:10px;border:1px solid var(--borde);box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.pieza-img.doble{padding:28px 44px 44px 24px}
+.doble-marco{position:relative;width:100%}
+.doble-marco img:first-child{width:100%}
+.doble-marco img:last-child{position:absolute;width:30%;right:-26px;bottom:-30px;border-radius:14px;border:3px solid #1c2130}
+.enlaces{display:flex;flex-wrap:wrap;gap:10px}
+.enlaces .btn{padding:10px 18px;font-size:.92rem}
+.nuevo{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(56,226,166,.14);color:var(--menta);border-radius:6px;padding:3px 8px;vertical-align:middle;margin-left:8px}
+.portal-mock{width:100%;max-width:340px;background:#0a1430;border:1px solid #1d2f5c;border-radius:16px;padding:24px;text-align:center;font-size:.9rem;box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.portal-mock .ok{width:54px;height:54px;border-radius:50%;background:#39e58c;color:#fff;display:grid;place-items:center;margin:0 auto 10px;font-size:1.6rem;font-weight:700}
+.portal-mock h4{font-family:"Space Grotesk",sans-serif;font-size:1.3rem;margin-bottom:4px}
+.portal-mock p{color:#9fb0d4;margin:0 0 14px!important}
+.portal-mock .fila{display:flex;justify-content:space-between;border-top:1px solid #1d2f5c;padding:8px 0;font-size:.85rem}
+.portal-mock .fila span{color:#8ea0c4}
+.portal-mock .verde{background:rgba(57,229,140,.12);border:1px solid #39e58c;border-radius:12px;padding:16px;margin-bottom:12px}
+.portal-mock .wa{display:block;background:#1fa855;color:#fff;border-radius:10px;padding:9px;font-weight:600;margin-top:12px}
+
+/* Otros proyectos */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card{background:var(--tarjeta);border:1px solid var(--borde);border-radius:var(--radio);padding:30px}
+.card h3{font-size:1.35rem;margin:6px 0 8px}
+.card p{color:var(--suave);font-size:.96rem;margin-bottom:16px}
+.estado{font-size:.75rem;font-weight:600;color:#ffc04d;letter-spacing:.06em;text-transform:uppercase}
+
+/* Servicios */
+.paquetes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.paquete{display:flex;flex-direction:column;background:var(--tarjeta);border:1px solid var(--borde);border-radius:var(--radio);padding:30px}
+.paquete.top{border-color:var(--menta);box-shadow:0 0 0 1px var(--menta)}
+.paquete h3{font-size:1.4rem}
+.paquete .para{color:var(--suave);font-size:.9rem;margin:4px 0 16px}
+.desde{font-family:"Space Grotesk",sans-serif;font-size:2.2rem;font-weight:700;margin-bottom:2px}
+.desde small{font-size:.9rem;color:var(--suave);font-weight:500}
+.mensual{color:var(--suave);font-size:.86rem;margin-bottom:18px}
+.paquete ul{list-style:none;display:grid;gap:9px;margin-bottom:24px;flex:1}
+.paquete li{display:flex;gap:10px;font-size:.94rem}
+.paquete li svg{width:18px;height:18px;flex:none;color:var(--menta);margin-top:4px}
+.nota{color:var(--suave);font-size:.88rem;margin-top:18px}
+
+/* Proceso */
+.pasos{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:paso}
+.paso{border-top:2px solid var(--borde);padding-top:18px}
+.paso::before{counter-increment:paso;content:"0" counter(paso);font-family:"Space Grotesk",sans-serif;color:var(--menta);font-weight:700}
+.paso h3{font-size:1.15rem;margin:6px 0}
+.paso p{color:var(--suave);font-size:.93rem}
+
+/* Sobre mí */
+.sobre{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.sobre img{border-radius:var(--radio);border:1px solid var(--borde);aspect-ratio:4/5;object-fit:cover;width:100%}
+.sobre p{color:var(--suave);margin-bottom:16px;font-size:1.02rem}
+.sobre p b{color:var(--texto)}
+.stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.stack span{background:var(--tarjeta);border:1px solid var(--borde);border-radius:8px;padding:6px 12px;font-size:.86rem}
+
+/* Contacto */
+#contacto{background:var(--fondo2);border-top:1px solid var(--borde)}
+.contacto{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+.contacto h2{font-size:clamp(2rem,4.6vw,3rem);margin-bottom:14px}
+.contacto p{color:var(--suave);margin-bottom:26px;font-size:1.05rem}
+.datos{display:grid;gap:12px}
+.dato{display:flex;align-items:center;gap:14px;background:var(--tarjeta);border:1px solid var(--borde);border-radius:14px;padding:14px 18px;transition:border-color .2s}
+.dato:hover{border-color:var(--menta)}
+.dato .ico{width:40px;height:40px;border-radius:10px;background:rgba(56,226,166,.12);color:var(--menta);display:grid;place-items:center;flex:none}
+.dato .ico svg{width:20px;height:20px}
+.dato small{display:block;color:var(--suave);font-size:.78rem}
+.dato div:last-child{overflow-wrap:anywhere}
+footer{padding:26px 0;color:var(--suave);font-size:.85rem;border-top:1px solid var(--borde)}
+footer .contenedor{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+.aparece{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+.aparece.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.aparece{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+@media (max-width:920px){
+  .nav ul,.nav .btn{display:none}
+  .menu-btn{display:block}
+  .nav.abierto ul{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:rgba(10,12,17,.97);padding:18px 24px 24px;gap:18px;font-size:1.05rem;border-bottom:1px solid var(--borde)}
+  .hero{padding-top:110px}
+  .hero .contenedor,.caso-top,.pieza,.pieza:nth-child(even),.grid2,.paquetes,.sobre,.contacto{grid-template-columns:1fr}
+  .pieza:nth-child(even) .pieza-texto{order:0}
+  .pieza-texto{padding:26px}
+  .pieza-img{min-height:0;padding:20px}
+  .pasos{grid-template-columns:1fr 1fr}
+  .vitrina{margin:0 10px 30px}
+  .sobre img{max-width:380px}
+  section{padding:68px 0}
+}
+@media (max-width:520px){
+  .resultados{grid-template-columns:1fr}
+  .pasos{grid-template-columns:1fr}
+  .acciones .btn{width:100%}
+  .cifras{gap:22px}
+  .vitrina .cel{right:-6px;bottom:-24px;border-width:3px;border-radius:14px}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4c-1-1.6-1.5-3.4-1.5-5.2C2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zm8.4-18.2C18.1 1.3 15.2.1 12 .1 5.5.1.2 5.4.2 11.9c0 2.1.5 4.1 1.6 5.9L.1 23.9l6.3-1.6c1.7.9 3.7 1.4 5.6 1.4 6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.4-8.3z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+  <symbol id="i-gh" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></g></symbol>
+</svg>
+
+<nav class="nav" id="nav">
+  <div class="contenedor">
+    <a class="logo" href="#inicio"><i>AO</i>Aaron Ortiz</a>
+    <ul>
+      <li><a href="#caso">Caso real</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#proceso">Cómo trabajo</a></li>
+      <li><a href="#sobre">Sobre mí</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a class="btn btn-menta" data-wa="Hola Aaron, vi tu portafolio y me interesa una web o sistema para mi negocio." href="#"><svg><use href="#i-wa"/></svg>Escríbeme</a>
+    <button class="menu-btn" aria-label="Abrir menú" aria-expanded="false"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="contenedor">
+    <div>
+      <span class="disponible"><i></i>Disponible para nuevos proyectos</span>
+      <h1>Webs y sistemas para <span class="marca">negocios de servicios</span></h1>
+      <p>Ayudo a gimnasios, barberías y negocios de servicios a conseguir clientes y cobrar a tiempo, con una página web, un sistema de gestión hecho a su medida y cobros por WhatsApp.</p>
+      <div class="acciones">
+        <a class="btn btn-menta" href="#caso">Ver el caso real</a>
+        <a class="btn btn-borde" data-wa="Hola Aaron, quiero saber cuánto costaría una web o sistema para mi negocio." href="#"><svg><use href="#i-wa"/></svg>Pedir presupuesto</a>
+      </div>
+      <div class="cifras">
+        <div><b>+100</b><span>membresías gestionadas<br>en producción</span></div>
+        <div><b>3 en 1</b><span>web, sistema y portal<br>conectados</span></div>
+        <div><b>24/7</b><span>desde el celular<br>o la PC</span></div>
+      </div>
+    </div>
+    <div class="vitrina aparece">
+      <img class="pc" src="img/landing-hero.jpg" alt="Página web de DreamFit Gym Center hecha por Aaron Ortiz">
+      <img class="cel" src="img/landing-movil.jpg" alt="La misma página vista en un celular">
+    </div>
+  </div>
+</header>
+
+<section id="caso">
+  <div class="contenedor">
+    <div class="caso-top">
+      <div>
+        <span class="etiqueta aparece">Caso real · DreamFit Gym Center</span>
+        <h2 class="titulo aparece">De una tabla de Notion a un gimnasio <span class="marca">100% digital</span></h2>
+        <p class="intro aparece">El gimnasio llevaba los cobros en Notion, con una tabla nueva cada mes: las deudas se perdían y nadie sabía a tiempo quién debía. Les construí tres piezas conectadas que hoy usan todos los días.</p>
+      </div>
+      <div class="resultados aparece">
+        <div class="resultado"><b>+100</b><span>membresías migradas y activas</span></div>
+        <div class="resultado"><b>1 clic</b><span>para cobrar por WhatsApp</span></div>
+        <div class="resultado"><b>0</b><span>deudas perdidas entre meses</span></div>
+      </div>
+    </div>
+
+    <div class="piezas">
+      <article class="pieza aparece">
+        <div class="pieza-texto">
+          <span class="num">01 · SISTEMA DE GESTIÓN</span>
+          <h3>GymFlow</h3>
+          <p>El panel donde el gimnasio controla membresías, cobros y finanzas, desde la PC o el celular.</p>
+          <ul>
+            <li><svg><use href="#i-check"/></svg>Calcula solo quién está al día, quién debe y cuánto.</li>
+            <li><svg><use href="#i-check"/></svg>Recordatorio de cobro por WhatsApp con el mensaje ya escrito.</li>
+            <li><svg><use href="#i-check"/></svg>Gastos del local, balance de ganancia o pérdida y cierres de mes imprimibles.</li>
+            <li><svg><use href="#i-check"/></svg>Planes individuales, en pareja y grupales con un solo pago.</li>
+          </ul>
+          <div class="chips"><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">PostgreSQL</span><span class="chip">Supabase</span><span class="chip">Vercel</span></div>
+          <div class="enlaces">
+            <a class="btn btn-menta" href="https://gymflow-demo-aaron.vercel.app" target="_blank" rel="noopener"><svg><use href="#i-ext"/></svg>Probar la demo</a>
+            <a class="btn btn-borde" href="https://github.com/Kikillo23/GymFlow" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg>Código</a>
+          </div>
+        </div>
+        <div class="pieza-img doble">
+          <div class="doble-marco">
+            <img src="img/gymflow-panel.jpg" alt="Panel de cobros de GymFlow" loading="lazy">
+            <img src="img/gymflow-movil.jpg" alt="GymFlow en el celular" loading="lazy">
+          </div>
+        </div>
+      </article>
+
+      <article class="pieza aparece">
+        <div class="pieza-texto">
+          <span class="num">02 · PÁGINA WEB</span>
+          <h3>Landing de DreamFit</h3>
+          <p>La vitrina del gimnasio en internet, pensada para que la gente escriba por WhatsApp y se inscriba.</p>
+          <ul>
+            <li><svg><use href="#i-check"/></svg>Planes y precios claros, con botones que abren WhatsApp con el plan elegido.</li>
+            <li><svg><use href="#i-check"/></svg>Resultados reales de miembros, fotos del gym y de la comunidad.</li>
+            <li><svg><use href="#i-check"/></svg>Horarios, entrenadores, ubicación y mapa.</li>
+            <li><svg><use href="#i-check"/></svg>Rápida y pensada primero para el celular.</li>
+          </ul>
+          <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Diseño responsive</span></div>
+          <div class="enlaces">
+            <a class="btn btn-menta" href="https://dreamfit-web.vercel.app" target="_blank" rel="noopener"><svg><use href="#i-ext"/></svg>Ver la página</a>
+          </div>
+        </div>
+        <div class="pieza-img">
+          <img src="img/landing-planes.jpg" alt="Sección de planes y precios de la página de DreamFit" loading="lazy">
+        </div>
+      </article>
+
+      <article class="pieza aparece">
+        <div class="pieza-texto">
+          <span class="num">03 · PORTAL DE SOCIOS</span>
+          <h3>Consulta tu estado <span class="nuevo">Nuevo</span></h3>
+          <p>Conecta la página web con el sistema: cada socio revisa su mensualidad sin llamar ni escribir al gimnasio.</p>
+          <ul>
+            <li><svg><use href="#i-check"/></svg>Cada membresía tiene un código o enlace personal, sin usuario ni clave.</li>
+            <li><svg><use href="#i-check"/></svg>Muestra si está al día, cuánto debe y cuándo vence su próximo pago.</li>
+            <li><svg><use href="#i-check"/></svg>Botón para enviar el comprobante de pago por WhatsApp.</li>
+            <li><svg><use href="#i-check"/></svg>Solo muestra los datos de esa membresía y frena a quien intenta adivinar códigos.</li>
+          </ul>
+          <div class="chips"><span class="chip">Next.js</span><span class="chip">Server Components</span><span class="chip">Prisma</span></div>
+        </div>
+        <div class="pieza-img">
+          <div class="portal-mock" aria-label="Ejemplo de la pantalla que ve el socio">
+            <div class="verde"><div class="ok">✓</div><h4>Estás al día</h4><p>Tu próximo pago es el 15 de noviembre: $30,00.</p></div>
+            <div class="fila"><span>Plan</span><b>Pareja · 2 personas</b></div>
+            <div class="fila"><span>Día de pago</span><b>15 de cada mes</b></div>
+            <div class="fila"><span>Último pago</span><b>14 de octubre · $30,00</b></div>
+            <span class="wa">Escribir al gimnasio</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="proyectos">
+  <div class="contenedor">
+    <span class="etiqueta aparece">En desarrollo</span>
+    <h2 class="titulo aparece">Lo que viene</h2>
+    <p class="intro aparece">Sigo ampliando el mismo producto para más tipos de negocio.</p>
+    <div class="grid2">
+      <div class="card aparece">
+        <span class="estado">En construcción</span>
+        <h3>Agenda de citas + asistente de WhatsApp</h3>
+        <p>Módulo de citas por servicio, empleado y horario para barberías y peluquerías, con un asistente de WhatsApp que responde preguntas frecuentes y agenda solo.</p>
+        <div class="chips"><span class="chip">Next.js</span><span class="chip">WhatsApp Business API</span></div>
+      </div>
+      <div class="card aparece">
+        <span class="estado">Trabajo de grado</span>
+        <h3>App de coaching físico con IA</h3>
+        <p>App móvil que ajusta el entrenamiento según el sueño y el pulso en reposo con un sistema experto, y predice el riesgo de abandono con machine learning.</p>
+        <div class="chips"><span class="chip">Flutter</span><span class="chip">Python</span><span class="chip">Machine Learning</span><span class="chip">Sistemas expertos</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="servicios" style="background:var(--fondo2);border-block:1px solid var(--borde)">
+  <div class="contenedor">
+    <span class="etiqueta aparece">Servicios</span>
+    <h2 class="titulo aparece">Elige por dónde <span class="marca">empezar</span></h2>
+    <p class="intro aparece">Cada pieza funciona sola, y juntas se conectan. Precios de referencia en dólares; el presupuesto final depende de lo que necesite tu negocio.</p>
+    <div class="paquetes">
+      <div class="paquete aparece">
+        <h3>Presencia</h3>
+        <div class="para">Para que te encuentren y te escriban</div>
+        <div class="desde"><small>desde</small> $150</div>
+        <div class="mensual">+ $10/mes de hosting y cambios menores</div>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>Página web adaptada al celular</li>
+          <li><svg><use href="#i-check"/></svg>Servicios, precios, fotos y mapa</li>
+          <li><svg><use href="#i-check"/></svg>Botones de WhatsApp con mensaje listo</li>
+        </ul>
+        <a class="btn btn-borde" data-wa="Hola Aaron, me interesa el paquete Presencia (página web)." href="#">Lo quiero</a>
+      </div>
+      <div class="paquete aparece">
+        <h3>Gestión</h3>
+        <div class="para">Para ordenar clientes y cobros</div>
+        <div class="desde"><small>desde</small> $200</div>
+        <div class="mensual">+ $30/mes de mantenimiento</div>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>Sistema a tu medida: clientes, pagos, atrasos</li>
+          <li><svg><use href="#i-check"/></svg>Gastos, balance y reportes mensuales</li>
+          <li><svg><use href="#i-check"/></svg>Migración desde Excel, Notion o cuadernos</li>
+        </ul>
+        <a class="btn btn-borde" data-wa="Hola Aaron, me interesa el paquete Gestión (sistema de clientes y cobros)." href="#">Lo quiero</a>
+      </div>
+      <div class="paquete top aparece">
+        <h3>Combo completo</h3>
+        <div class="para">Web, sistema y portal conectados</div>
+        <div class="desde"><small>desde</small> $450</div>
+        <div class="mensual">+ $60/mes de mantenimiento</div>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>Todo lo de Presencia y Gestión</li>
+          <li><svg><use href="#i-check"/></svg>Portal para que tus clientes vean su estado</li>
+          <li><svg><use href="#i-check"/></svg>Recordatorios de cobro por WhatsApp</li>
+        </ul>
+        <a class="btn btn-menta" data-wa="Hola Aaron, me interesa el Combo completo para mi negocio." href="#">Lo quiero</a>
+      </div>
+    </div>
+    <p class="nota aparece">Pago: 50% al empezar y 50% al entregar. Los cambios que no estén en el paquete se cotizan aparte.</p>
+  </div>
+</section>
+
+<section id="proceso">
+  <div class="contenedor">
+    <span class="etiqueta aparece">Cómo trabajo</span>
+    <h2 class="titulo aparece">Simple y sin tecnicismos</h2>
+    <p class="intro aparece">Hablo tu idioma, no el de los programadores. Ves avances desde la primera semana.</p>
+    <div class="pasos">
+      <div class="paso aparece"><h3>Conversamos</h3><p>Me cuentas cómo funciona tu negocio hoy y qué te quita tiempo o dinero.</p></div>
+      <div class="paso aparece"><h3>Propuesta</h3><p>Te digo qué haría, cuánto cuesta y en cuánto tiempo, por escrito.</p></div>
+      <div class="paso aparece"><h3>Avances</h3><p>Te muestro el progreso cada pocos días para que lo pruebes y opines.</p></div>
+      <div class="paso aparece"><h3>Entrega y soporte</h3><p>Lo publico, migro tus datos, te enseño a usarlo y sigo disponible.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre" style="background:var(--fondo2);border-block:1px solid var(--borde)">
+  <div class="contenedor sobre">
+    <img class="aparece" src="img/aaron.jpg" alt="Aaron Ortiz entrenando en DreamFit Gym" loading="lazy">
+    <div class="aparece">
+      <span class="etiqueta">Sobre mí</span>
+      <h2 class="titulo">Programador y entrenador</h2>
+      <p>Soy <b>Aaron Ortiz</b>, desarrollador web full-stack de La Asunción, Isla de Margarita, y estudiante de 8.º semestre de Licenciatura en Informática en la Universidad de Oriente.</p>
+      <p>También soy entrenador en DreamFit Gym. Ahí vi de cerca cuánto dinero se pierde cuando los cobros se llevan a mano, y por eso construí el sistema que hoy usa el gimnasio. <b>Entiendo tu negocio porque trabajo en uno.</b></p>
+      <p>Me enfoco en hacer software simple, que el dueño y su equipo usan todos los días desde el celular.</p>
+      <div class="stack"><span>Next.js</span><span>React</span><span>TypeScript</span><span>Node.js</span><span>PostgreSQL</span><span>Prisma</span><span>Supabase</span><span>Vercel</span><span>Python</span><span>Flutter</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="contenedor contacto">
+    <div class="aparece">
+      <span class="etiqueta">Contacto</span>
+      <h2>¿Tu negocio todavía lleva todo en cuadernos o Excel?</h2>
+      <p>Escríbeme y en 10 minutos te muestro cómo funcionaría para ti. Sin compromiso.</p>
+      <a class="btn btn-wa" data-wa="Hola Aaron, vi tu portafolio. Tengo un negocio de [tipo] y quiero ordenar [clientes / cobros / citas]." href="#"><svg><use href="#i-wa"/></svg>Escribir por WhatsApp</a>
+    </div>
+    <div class="datos aparece">
+      <a class="dato" data-wa="Hola Aaron, vi tu portafolio." href="#"><div class="ico"><svg><use href="#i-wa"/></svg></div><div><small>WhatsApp</small>+58 412-356-7805</div></a>
+      <a class="dato" href="mailto:aaronenriqueortiz2003@gmail.com"><div class="ico"><svg><use href="#i-mail"/></svg></div><div><small>Correo</small>aaronenriqueortiz2003@gmail.com</div></a>
+      <a class="dato" href="https://github.com/Kikillo23" target="_blank" rel="noopener"><div class="ico"><svg><use href="#i-gh"/></svg></div><div><small>GitHub</small>github.com/Kikillo23</div></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="contenedor">
+    <span>© <span id="anio">2026</span> Aaron Ortiz · Desarrollador web</span>
+    <span>La Asunción, Nueva Esparta, Venezuela</span>
+  </div>
+</footer>
+
+<script>
+  const WHATSAPP = '584123567805';
+  document.querySelectorAll('[data-wa]').forEach(a => {
+    a.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(a.dataset.wa);
+    a.target = '_blank'; a.rel = 'noopener';
+  });
+  document.getElementById('anio').textContent = new Date().getFullYear();
+  const nav = document.getElementById('nav');
+  const menu = nav.querySelector('.menu-btn');
+  menu.addEventListener('click', () => menu.setAttribute('aria-expanded', nav.classList.toggle('abierto')));
+  nav.querySelectorAll('ul a').forEach(a => a.addEventListener('click', () => { nav.classList.remove('abierto'); menu.setAttribute('aria-expanded', false); }));
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: .12 });
+    document.querySelectorAll('.aparece').forEach(el => io.observe(el));
+  } else document.querySelectorAll('.aparece').forEach(el => el.classList.add('visible'));
+</script>
+</body>
+</html>
