@@ -184,6 +184,25 @@ footer .contenedor{display:flex;justify-content:space-between;flex-wrap:wrap;gap
   .cifras{gap:22px}
   .vitrina .cel{right:-6px;bottom:-24px;border-width:3px;border-radius:14px}
 }
+
+/* Maqueta de la app DreamFit IA (datos de ejemplo) */
+.app-mock{width:min(300px,100%);margin:auto;background:#040817;border:1px solid #1c2a5e;border-radius:34px;padding:18px 16px 16px;box-shadow:0 30px 60px rgba(0,0,0,.45),0 0 0 6px #0b1230;font-family:Inter,sans-serif}
+.app-mock .notch{width:90px;height:6px;border-radius:6px;background:#1c2a5e;margin:0 auto 14px}
+.app-mock small{color:#4dc3ff;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+.app-mock h5{font-family:"Space Grotesk",sans-serif;font-size:1.3rem;margin:2px 0 12px;color:#edf1ff}
+.app-mock .tarjeta{background:linear-gradient(135deg,rgba(52,227,154,.14),#0d1638);border:1px solid rgba(52,227,154,.6);border-radius:16px;padding:12px;display:flex;gap:12px;align-items:center;margin-bottom:10px}
+.app-mock .anillo{width:64px;height:64px;border-radius:50%;flex:none;display:grid;place-items:center;background:conic-gradient(#34e39a 0 82%,#1c2a5e 82% 100%);box-shadow:0 0 18px rgba(52,227,154,.35)}
+.app-mock .anillo b{width:50px;height:50px;border-radius:50%;background:#0d1638;display:grid;place-items:center;font-family:"Space Grotesk",sans-serif;font-size:1.25rem;color:#34e39a}
+.app-mock .tarjeta p{font-size:.72rem;color:#94a1c9;margin:2px 0 0;line-height:1.35}
+.app-mock .tarjeta strong{font-size:.9rem;color:#edf1ff}
+.app-mock .musculos{background:#0d1638;border:1px solid #1c2a5e;border-radius:16px;padding:12px}
+.app-mock .musculos .t{font-size:.78rem;font-weight:600;color:#edf1ff;margin-bottom:8px}
+.app-mock .m{display:grid;grid-template-columns:62px 1fr 34px;align-items:center;gap:8px;font-size:.7rem;color:#94a1c9;margin:5px 0}
+.app-mock .m i{height:6px;border-radius:6px;background:#1c2a5e;position:relative;overflow:hidden}
+.app-mock .m i::after{content:"";position:absolute;inset:0;width:var(--v);border-radius:6px;background:var(--c)}
+.app-mock .m b{color:var(--c);text-align:right}
+.app-mock .tabs{display:flex;justify-content:space-between;margin-top:12px;padding-top:10px;border-top:1px solid #1c2a5e;font-size:.58rem;color:#94a1c9}
+.app-mock .tabs span.on{color:#4dc3ff;font-weight:700}
 </style>
 </head>
 <body>
@@ -318,6 +337,42 @@ footer .contenedor{display:flex;justify-content:space-between;flex-wrap:wrap;gap
             <span class="wa">Escribir al gimnasio</span>
           </div>
         </div>
+
+      </article>
+
+      <article class="pieza aparece">
+        <div class="pieza-texto">
+          <span class="num">04 · APP CON INTELIGENCIA ARTIFICIAL</span>
+          <h3>DreamFit IA <span class="nuevo">Nuevo</span></h3>
+          <p>App para socios y entrenadores (mi trabajo de grado), conectada a la misma base de datos del sistema. Ajusta el entrenamiento de cada persona según cómo llega ese día.</p>
+          <ul>
+            <li><svg><use href="#i-check"/></svg>Sistema experto: con el sueño, el pulso al despertar y la fatiga calcula un índice de 0 a 100 y explica por qué.</li>
+            <li><svg><use href="#i-check"/></svg>Sugiere el peso de cada ejercicio según la última sesión y el nivel del día.</li>
+            <li><svg><use href="#i-check"/></svg>Recuperación por grupo muscular, racha semanal, récords y resumen de cada entreno.</li>
+            <li><svg><use href="#i-check"/></svg>Nutrición: registro de comidas venezolanas, metas de calorías y planes asignados por el entrenador.</li>
+            <li><svg><use href="#i-check"/></svg>Modo entrenador: clientes con semáforo, alertas de abandono, rutinas y dietas.</li>
+          </ul>
+          <div class="chips"><span class="chip">Flutter</span><span class="chip">Python · FastAPI</span><span class="chip">Sistema experto</span><span class="chip">Supabase</span></div>
+        </div>
+        <div class="pieza-img">
+          <div class="app-mock" aria-label="Ejemplo de la pantalla Hoy de la app, con datos de ejemplo">
+            <div class="notch"></div>
+            <small>Martes 4 de noviembre</small>
+            <h5>Hola, Ana</h5>
+            <div class="tarjeta">
+              <div class="anillo"><b>82</b></div>
+              <div><strong>Listo para entrenar</strong><p>Dormiste 7,5 h y tu pulso está normal. Carga de hoy: 100 %.</p></div>
+            </div>
+            <div class="musculos">
+              <div class="t">Recuperación muscular</div>
+              <div class="m"><span>Piernas</span><i style="--v:46%;--c:#ff5c72"></i><b style="--c:#ff5c72">46%</b></div>
+              <div class="m"><span>Glúteos</span><i style="--v:63%;--c:#ffc24d"></i><b style="--c:#ffc24d">63%</b></div>
+              <div class="m"><span>Pecho</span><i style="--v:92%;--c:#34e39a"></i><b style="--c:#34e39a">92%</b></div>
+              <div class="m"><span>Espalda</span><i style="--v:100%;--c:#34e39a"></i><b style="--c:#34e39a">100%</b></div>
+            </div>
+            <div class="tabs"><span class="on">Hoy</span><span>Entrenar</span><span>Comida</span><span>Historial</span><span>Progreso</span></div>
+          </div>
+        </div>
       </article>
     </div>
   </div>
@@ -336,10 +391,10 @@ footer .contenedor{display:flex;justify-content:space-between;flex-wrap:wrap;gap
         <div class="chips"><span class="chip">Next.js</span><span class="chip">WhatsApp Business API</span></div>
       </div>
       <div class="card aparece">
-        <span class="estado">Trabajo de grado</span>
-        <h3>App de coaching físico con IA</h3>
-        <p>App móvil que ajusta el entrenamiento según el sueño y el pulso en reposo con un sistema experto, y predice el riesgo de abandono con machine learning.</p>
-        <div class="chips"><span class="chip">Flutter</span><span class="chip">Python</span><span class="chip">Machine Learning</span><span class="chip">Sistemas expertos</span></div>
+        <span class="estado">Próximo paso</span>
+        <h3>Machine learning con datos reales</h3>
+        <p>Con las semanas de uso de los socios, la app pasará de reglas a modelos que predicen quién va a dejar el gym y cuánto peso sugerir a cada persona.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">scikit-learn</span></div>
       </div>
     </div>
   </div>
