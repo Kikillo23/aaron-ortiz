@@ -203,6 +203,86 @@ footer .contenedor{display:flex;justify-content:space-between;flex-wrap:wrap;gap
 .app-mock .m b{color:var(--c);text-align:right}
 .app-mock .tabs{display:flex;justify-content:space-between;margin-top:12px;padding-top:10px;border-top:1px solid #1c2a5e;font-size:.58rem;color:#94a1c9}
 .app-mock .tabs span.on{color:#4dc3ff;font-weight:700}
+
+/* =========================================================
+   Pulido visual (UI/UX Pro Max) — misma identidad menta
+   ========================================================= */
+::selection{background:rgba(56,226,166,.3);color:#fff}
+:focus-visible{outline:2px solid var(--menta);outline-offset:3px;border-radius:10px}
+
+.progreso{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);z-index:70;background:linear-gradient(90deg,var(--menta),var(--azul));box-shadow:0 0 12px rgba(56,226,166,.6);pointer-events:none}
+
+.nav{transition:background .3s,box-shadow .3s}
+.nav.con-scroll{background:rgba(10,12,17,.94);box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.nav ul a{position:relative;padding:6px 0;transition:color .2s}
+.nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;border-radius:2px;background:var(--menta);transform:scaleX(0);transition:transform .25s}
+.nav ul a:hover::after,.nav ul a.activo::after{transform:scaleX(1)}
+.nav ul a.activo{color:var(--texto)}
+
+/* Hero: entrada escalonada, brillo que respira, vitrina flotante */
+.hero::before{animation:respira 8s ease-in-out infinite}
+@keyframes respira{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.1)}}
+.hero .contenedor>div:first-child>*{animation:sube .8s cubic-bezier(.2,.7,.2,1) both}
+.hero .contenedor>div:first-child>:nth-child(2){animation-delay:.08s}
+.hero .contenedor>div:first-child>:nth-child(3){animation-delay:.16s}
+.hero .contenedor>div:first-child>:nth-child(4){animation-delay:.24s}
+.hero .contenedor>div:first-child>:nth-child(5){animation-delay:.32s}
+.vitrina{animation:sube 1s .2s cubic-bezier(.2,.7,.2,1) both}
+.vitrina .cel{animation:flota 6s ease-in-out infinite}
+@keyframes sube{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes flota{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.disponible i{animation:latido 2s ease-in-out infinite}
+@keyframes latido{0%,100%{box-shadow:0 0 0 4px rgba(56,226,166,.18)}50%{box-shadow:0 0 0 7px rgba(56,226,166,.06)}}
+.marca{background:linear-gradient(90deg,var(--menta),var(--menta2));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.btn-menta{box-shadow:0 8px 26px rgba(56,226,166,.22)}
+.btn-menta:hover{box-shadow:0 12px 34px rgba(56,226,166,.38)}
+.btn:active{transform:translateY(0) scale(.98)}
+
+/* Tarjetas con borde que se enciende */
+.pieza,.card,.paquete,.resultado,.dato,.paso{transition:transform .25s cubic-bezier(.2,.7,.2,1),border-color .25s,box-shadow .25s}
+.pieza:hover{border-color:rgba(56,226,166,.4);box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.pieza-img img{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.pieza:hover .pieza-img img:first-child{transform:translateY(-6px)}
+.pieza-img{background:radial-gradient(circle at 50% 40%,rgba(56,226,166,.08),transparent 70%),#0d1018}
+.card,.paquete{position:relative;overflow:hidden}
+.card::before,.paquete::before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,var(--menta),var(--azul));transform:scaleX(0);transform-origin:0 50%;transition:transform .35s}
+.card:hover,.paquete:hover{transform:translateY(-6px);border-color:rgba(56,226,166,.4);box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.card:hover::before,.paquete:hover::before{transform:scaleX(1)}
+.paquete.top{background:linear-gradient(180deg,rgba(56,226,166,.08),var(--tarjeta) 45%)}
+.resultado:hover{transform:translateY(-3px);border-color:rgba(56,226,166,.4)}
+.paso{transition:border-color .3s}
+.paso:hover{border-top-color:var(--menta)}
+.dato:hover{transform:translateX(4px)}
+.stack span{transition:border-color .2s,color .2s}
+.stack span:hover{border-color:var(--menta);color:var(--menta)}
+.sobre img{box-shadow:0 30px 70px rgba(0,0,0,.45)}
+
+/* Aparición escalonada */
+.paquetes>.aparece:nth-child(2),.grid2>.aparece:nth-child(2),.pasos>.aparece:nth-child(2){transition-delay:.1s}
+.paquetes>.aparece:nth-child(3),.pasos>.aparece:nth-child(3){transition-delay:.2s}
+.pasos>.aparece:nth-child(4){transition-delay:.3s}
+.aparece{transition-timing-function:cubic-bezier(.2,.7,.2,1)}
+
+@media (max-width:920px){
+  .nav.abierto ul a{display:block;padding:10px 0}
+  .nav ul a::after{display:none}
+}
+@media (hover:none){.card:hover,.paquete:hover,.resultado:hover{transform:none}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+}
+
+/* ===== Efectos: luz que sigue al cursor ===== */
+.luz{position:relative}
+.luz::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(340px circle at var(--mx,50%) var(--my,50%),rgba(56,226,166,.13),transparent 62%)}
+.luz:hover::after{opacity:1}
+
+/* ===== Efectos: palabra que rota en el título ===== */
+.rota{display:inline-block;transition:opacity .35s,transform .35s,filter .35s}
+.rota.sale{opacity:0;transform:translateY(.35em);filter:blur(6px)}
+.vitrina .pc,.vitrina .cel{transition:translate .5s cubic-bezier(.2,.7,.2,1)}
 </style>
 </head>
 <body>
@@ -215,6 +295,7 @@ footer .contenedor{display:flex;justify-content:space-between;flex-wrap:wrap;gap
   <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></g></symbol>
 </svg>
 
+<div class="progreso" id="progreso" aria-hidden="true"></div>
 <nav class="nav" id="nav">
   <div class="contenedor">
     <a class="logo" href="#inicio"><i>AO</i>Aaron Ortiz</a>
@@ -234,7 +315,7 @@ footer .contenedor{display:flex;justify-content:space-between;flex-wrap:wrap;gap
   <div class="contenedor">
     <div>
       <span class="disponible"><i></i>Disponible para nuevos proyectos</span>
-      <h1>Webs y sistemas para <span class="marca">negocios de servicios</span></h1>
+      <h1>Webs y sistemas para <span class="marca rota" id="rota">negocios de servicios</span></h1>
       <p>Ayudo a gimnasios, barberías y negocios de servicios a conseguir clientes y cobrar a tiempo, con una página web, un sistema de gestión hecho a su medida y cobros por WhatsApp.</p>
       <div class="acciones">
         <a class="btn btn-menta" href="#caso">Ver el caso real</a>
@@ -404,43 +485,43 @@ footer .contenedor{display:flex;justify-content:space-between;flex-wrap:wrap;gap
   <div class="contenedor">
     <span class="etiqueta aparece">Servicios</span>
     <h2 class="titulo aparece">Elige por dónde <span class="marca">empezar</span></h2>
-    <p class="intro aparece">Cada pieza funciona sola, y juntas se conectan. Precios de referencia en dólares; el presupuesto final depende de lo que necesite tu negocio.</p>
+    <p class="intro aparece">Cada pieza funciona sola, y juntas se conectan. Cada negocio es distinto: después de conversar te paso un presupuesto a la medida, sin compromiso.</p>
     <div class="paquetes">
       <div class="paquete aparece">
         <h3>Presencia</h3>
         <div class="para">Para que te encuentren y te escriban</div>
-        <div class="desde"><small>desde</small> $150</div>
-        <div class="mensual">+ $10/mes de hosting y cambios menores</div>
+        <div class="desde">A cotizar</div>
+        <div class="mensual">Incluye hosting y cambios menores al mes</div>
         <ul>
           <li><svg><use href="#i-check"/></svg>Página web adaptada al celular</li>
           <li><svg><use href="#i-check"/></svg>Servicios, precios, fotos y mapa</li>
           <li><svg><use href="#i-check"/></svg>Botones de WhatsApp con mensaje listo</li>
         </ul>
-        <a class="btn btn-borde" data-wa="Hola Aaron, me interesa el paquete Presencia (página web)." href="#">Lo quiero</a>
+        <a class="btn btn-borde" data-wa="Hola Aaron, quiero una cotización del paquete Presencia (página web) para mi negocio." href="#">Pedir cotización</a>
       </div>
       <div class="paquete aparece">
         <h3>Gestión</h3>
         <div class="para">Para ordenar clientes y cobros</div>
-        <div class="desde"><small>desde</small> $200</div>
-        <div class="mensual">+ $30/mes de mantenimiento</div>
+        <div class="desde">A cotizar</div>
+        <div class="mensual">Con mantenimiento mensual</div>
         <ul>
           <li><svg><use href="#i-check"/></svg>Sistema a tu medida: clientes, pagos, atrasos</li>
           <li><svg><use href="#i-check"/></svg>Gastos, balance y reportes mensuales</li>
           <li><svg><use href="#i-check"/></svg>Migración desde Excel, Notion o cuadernos</li>
         </ul>
-        <a class="btn btn-borde" data-wa="Hola Aaron, me interesa el paquete Gestión (sistema de clientes y cobros)." href="#">Lo quiero</a>
+        <a class="btn btn-borde" data-wa="Hola Aaron, quiero una cotización del paquete Gestión (sistema de clientes y cobros)." href="#">Pedir cotización</a>
       </div>
       <div class="paquete top aparece">
         <h3>Combo completo</h3>
         <div class="para">Web, sistema y portal conectados</div>
-        <div class="desde"><small>desde</small> $450</div>
-        <div class="mensual">+ $60/mes de mantenimiento</div>
+        <div class="desde">A cotizar</div>
+        <div class="mensual">Con mantenimiento y soporte mensual</div>
         <ul>
           <li><svg><use href="#i-check"/></svg>Todo lo de Presencia y Gestión</li>
           <li><svg><use href="#i-check"/></svg>Portal para que tus clientes vean su estado</li>
           <li><svg><use href="#i-check"/></svg>Recordatorios de cobro por WhatsApp</li>
         </ul>
-        <a class="btn btn-menta" data-wa="Hola Aaron, me interesa el Combo completo para mi negocio." href="#">Lo quiero</a>
+        <a class="btn btn-menta" data-wa="Hola Aaron, quiero una cotización del Combo completo para mi negocio." href="#">Pedir cotización</a>
       </div>
     </div>
     <p class="nota aparece">Pago: 50% al empezar y 50% al entregar. Los cambios que no estén en el paquete se cotizan aparte.</p>
@@ -467,7 +548,7 @@ footer .contenedor{display:flex;justify-content:space-between;flex-wrap:wrap;gap
     <div class="aparece">
       <span class="etiqueta">Sobre mí</span>
       <h2 class="titulo">Programador y entrenador</h2>
-      <p>Soy <b>Aaron Ortiz</b>, desarrollador web full-stack de La Asunción, Isla de Margarita, y estudiante de 8.º semestre de Licenciatura en Informática en la Universidad de Oriente.</p>
+      <p>Soy <b>Aaron Ortiz</b>, desarrollador web full-stack de La Asunción, Isla de Margarita, y estudiante del último semestre de Licenciatura en Informática en la Universidad de Oriente.</p>
       <p>También soy entrenador en DreamFit Gym. Ahí vi de cerca cuánto dinero se pierde cuando los cobros se llevan a mano, y por eso construí el sistema que hoy usa el gimnasio. <b>Entiendo tu negocio porque trabajo en uno.</b></p>
       <p>Me enfoco en hacer software simple, que el dueño y su equipo usan todos los días desde el celular.</p>
       <div class="stack"><span>Next.js</span><span>React</span><span>TypeScript</span><span>Node.js</span><span>PostgreSQL</span><span>Prisma</span><span>Supabase</span><span>Vercel</span><span>Python</span><span>Flutter</span></div>
@@ -513,6 +594,101 @@ footer .contenedor{display:flex;justify-content:space-between;flex-wrap:wrap;gap
     const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: .12 });
     document.querySelectorAll('.aparece').forEach(el => io.observe(el));
   } else document.querySelectorAll('.aparece').forEach(el => el.classList.add('visible'));
+</script>
+<script>
+  // Pulido: barra de progreso, nav al bajar y sección activa
+  (() => {
+    const barra = document.getElementById('progreso'), nav = document.getElementById('nav');
+    const links = [...document.querySelectorAll('.nav ul a[href^="#"]')];
+    let pendiente = false;
+    const pintar = () => {
+      const h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+      barra.style.transform = 'scaleX(' + (max > 0 ? h.scrollTop / max : 0) + ')';
+      nav.classList.toggle('con-scroll', h.scrollTop > 40);
+      pendiente = false;
+    };
+    addEventListener('scroll', () => { if (!pendiente) { pendiente = true; requestAnimationFrame(pintar); } }, { passive: true });
+    pintar();
+    if ('IntersectionObserver' in window) {
+      const spy = new IntersectionObserver(es => es.forEach(e => {
+        if (e.isIntersecting) links.forEach(a => a.classList.toggle('activo', a.getAttribute('href') === '#' + e.target.id));
+      }), { rootMargin: '-45% 0px -50% 0px' });
+      links.forEach(a => { const s = document.querySelector(a.getAttribute('href')); if (s) spy.observe(s); });
+      const inicio = document.getElementById('inicio'); if (inicio) spy.observe(inicio);
+    }
+  })();
+</script>
+<script id="efectos">
+  // Efectos: luz en tarjetas, cifras que cuentan, palabra que rota y vitrina con profundidad
+  (() => {
+    const LUZ = '.pieza, .card, .paquete, .resultado, .dato';
+    const CIFRAS = '.cifras b, .resultado b';
+
+    const fino = matchMedia('(hover:hover) and (pointer:fine)').matches;
+    const quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Luz que sigue al cursor dentro de las tarjetas
+    if (fino) document.querySelectorAll(LUZ).forEach(el => {
+      el.classList.add('luz');
+      el.addEventListener('pointermove', e => {
+        const r = el.getBoundingClientRect();
+        el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+
+    // Cifras que cuentan desde 0 cuando entran en pantalla ("+100", "−12 kg", "$20")
+    const contar = el => {
+      const m = el.textContent.match(/^(\D*?)(\d+(?:[.,]\d+)?)(\D*)$/);
+      if (!m) return;
+      const [, antes, num, despues] = m, coma = num.includes(','), dec = (num.split(/[.,]/)[1] || '').length;
+      const fin = parseFloat(num.replace(',', '.')), t0 = performance.now(), dura = 900;
+      const paso = t => {
+        const p = Math.min(1, (t - t0) / dura), v = (fin * (1 - Math.pow(1 - p, 3))).toFixed(dec);
+        el.textContent = antes + (coma ? v.replace('.', ',') : v) + despues;
+        if (p < 1) requestAnimationFrame(paso);
+      };
+      requestAnimationFrame(paso);
+    };
+    if (!quieto && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver(es => es.forEach(e => {
+        if (e.isIntersecting) { contar(e.target); io.unobserve(e.target); }
+      }), { threshold: .6 });
+      document.querySelectorAll(CIFRAS).forEach(el => io.observe(el));
+    }
+
+    // El título va rotando el tipo de negocio (el alto se fija para que nada salte)
+    const rota = document.getElementById('rota');
+    if (rota && !quieto) {
+      // Frases de largo parecido: así el título no cambia de alto al rotar
+      const palabras = ['negocios de servicios', 'gimnasios y estudios', 'barberías y salones', 'clínicas y consultorios', 'academias y talleres'];
+      const h1 = rota.closest('h1');
+      const fijar = () => {
+        h1.style.minHeight = '';
+        let alto = 0;
+        for (const f of palabras) { rota.textContent = f; alto = Math.max(alto, h1.offsetHeight); }
+        h1.style.minHeight = alto + 'px'; rota.textContent = palabras[i];
+      };
+      let i = 0;
+      fijar(); addEventListener('resize', fijar);
+      setInterval(() => {
+        if (document.hidden) return;
+        rota.classList.add('sale');
+        setTimeout(() => { i = (i + 1) % palabras.length; rota.textContent = palabras[i]; rota.classList.remove('sale'); }, 360);
+      }, 2800);
+    }
+
+    // La vitrina del inicio se mueve un poco con el cursor (el celular más que la PC)
+    const hero = document.querySelector('.hero'), pc = document.querySelector('.vitrina .pc'), cel = document.querySelector('.vitrina .cel');
+    if (hero && pc && cel && fino && !quieto && CSS.supports('translate', '1px 1px')) {
+      hero.addEventListener('pointermove', e => {
+        const r = hero.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        pc.style.translate = (x * -10).toFixed(1) + 'px ' + (y * -8).toFixed(1) + 'px';
+        cel.style.translate = (x * 22).toFixed(1) + 'px ' + (y * 16).toFixed(1) + 'px';
+      });
+      hero.addEventListener('pointerleave', () => { pc.style.translate = ''; cel.style.translate = ''; });
+    }
+  })();
 </script>
 </body>
 </html>
