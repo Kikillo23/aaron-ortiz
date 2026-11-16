@@ -369,6 +369,15 @@ body{background-color:var(--fondo);
 }
 @media (max-width:520px){.cifras{flex-wrap:nowrap}.cifras span{font-size:.74rem}.fm-fila{grid-template-columns:1fr 1fr}.fm-bar{grid-column:1/-1}}
 @media (prefers-reduced-motion:reduce){.cinta-pista{animation:none}}
+
+/* Botón flotante de WhatsApp: siempre visible */
+.wa-flotante{position:fixed;right:18px;bottom:18px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.45);transition:transform .2s}
+.wa-flotante:hover{transform:scale(1.08)}
+.wa-flotante:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.wa-flotante svg{width:30px;height:30px;color:#fff}
+.wa-flotante::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--wa);animation:onda-wa 2.4s ease-out infinite}
+@keyframes onda-wa{from{transform:scale(1);opacity:.7}to{transform:scale(1.6);opacity:0}}
+@media (prefers-reduced-motion:reduce){.wa-flotante::before{animation:none}}
 </style>
 </head>
 <body>
@@ -718,6 +727,8 @@ body{background-color:var(--fondo);
     <span>La Asunción, Nueva Esparta, Venezuela</span>
   </div>
 </footer>
+
+<a class="wa-flotante" data-wa="Hola Aaron, vi tu portafolio y quiero información para mi negocio." href="#" aria-label="Escribir por WhatsApp"><svg><use href="#i-wa"/></svg></a>
 
 <script>
   const WHATSAPP = '584123567805';
